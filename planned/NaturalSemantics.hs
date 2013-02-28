@@ -1,0 +1,31 @@
+module NaturalSemantics where
+import Data.List
+import qualified AbstractSyntax as S
+import qualified IntegerArithmetic as I
+
+eval :: S.Term -> S.Term
+
+eval t | S.isValue t = t
+eval t | otherwise =  case t of
+  (S.If t1 t2 t3)   -> case eval t1 of
+                          S.Tru -> eval t2
+                          S.Fls -> eval t3
+
+  (S.App t1 t2)     -> case eval t1 of
+                         (S.Abs x _ t12) -> eval (S.subst x (eval t2) t12)
+
+  (S.IntAdd t1 t2)  -> (S.IntConst (I.intAdd (getInt t1) (getInt t2)))
+  (S.IntSub t1 t2)  -> (S.IntConst (I.intSub (getInt t1) (getInt t2)))
+  (S.IntMul t1 t2)  -> (S.IntConst (I.intMul (getInt t1) (getInt t2)))
+  (S.IntDiv t1 t2)  -> (S.IntConst (I.intDiv (getInt t1) (getInt t2)))
+  (S.IntNand t1 t2) -> (S.IntConst (I.intNand (getInt t1) (getInt t2)))
+
+  (S.IntEq t1 t2)   -> case (I.intEq (getInt t1) (getInt t2)) of
+                         True  -> S.Tru
+                         False -> S.Fls
+
+  (S.IntLt t1 t2)   -> case (I.intLt (getInt t1) (getInt t2)) of
+                         True  -> S.Tru
+                         False -> S.Fls
+
+  otherwise         -> error("Evaluation error.")
