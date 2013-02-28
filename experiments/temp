@@ -1,0 +1,5 @@
+  S.Let x t1 t2  -> do tau1 <- typing capGamma t1
+                       typing (Bind capGamma x tau1) t2
+  S.Fix t1-> do (S.TypeArrow tau1 tau2) <-  typing capGamma t1
+                Just $ S.TypeArrow (S.TypeArrow tau1 tau2) (tau2)
+

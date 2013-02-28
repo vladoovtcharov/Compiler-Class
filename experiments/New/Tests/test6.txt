@@ -1,0 +1,8 @@
+app(
+   abs(x:->(Int,Int).
+      abs(y:->(->(Int,Int),Int).
+         app(y,x)
+      )
+   ),
+   abs(z:Int.z)
+)

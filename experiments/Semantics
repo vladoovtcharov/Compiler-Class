@@ -1,0 +1,15 @@
+How can we disect semantics.
+Currently to me it seems as if the mahor divisions are classical and intuitionistic logic.
+I want to tie these into the classical greek philosophies of platonics vs. componets theories.  
+One can then also give algebraic semantics, boolean algebras, heyting algebra, c* algebras for calssical, inutionisitic, linear logic respectively.
+
+Then there are the more co,mp;ute sciencey ones, ooperational (big and small step), vs ddomain theory.
+Which can then be related to categories, cartesion closed, symetraical monoidal for denoational, linear
+
+THen for lingusitic semanticsn, can we realte construction grammer to there, seems like glue is an attempt for this.
+
+and also the perhaps misleading details of some of denotational for example, with topology, continuos functions.  but these perhaps as better seen as commuting with certain limits, but then perhaps there is anohter way of interpreting these in turn.
+
+also having a tree structure seems to be a repeating theme, It seems like graph structures would be better for parrelel type computations, at least visually it makes more sense to have bots walking around on a grpah focusing on a single point, and seeing if they can pull in any edge to try and contract the graph.  one can then place many of these bots around the graph (but this assumes the graph is in a single place, whereas as you might want many disjoint graphs) but regardless ccurius why trees keep apearing instead.
+
+
